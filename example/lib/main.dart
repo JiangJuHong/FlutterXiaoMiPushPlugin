@@ -21,16 +21,26 @@ class _MyAppState extends State<MyApp> {
   void initState() {
     super.initState();
     this.methods = {
-      "init": () => XiaoMiPushPlugin.init(appId: "2882303761518406102", appKey: "5981840633102"),
-      "setAlias": () => XiaoMiPushPlugin.setAlias(alias: "test", category: "test"),
-      "unsetAlias": () => XiaoMiPushPlugin.unsetAlias(alias: "test", category: "test"),
-      "getAllAlias": () async => controller.text = jsonEncode(await XiaoMiPushPlugin.getAllAlias()),
-      "setUserAccount": () => XiaoMiPushPlugin.setUserAccount(userAccount: "test", category: "test"),
-      "unsetUserAccount": () => XiaoMiPushPlugin.unsetUserAccount(userAccount: "test", category: "test"),
-      "getAllUserAccount": () async => controller.text = jsonEncode(await XiaoMiPushPlugin.getAllUserAccount()),
-      "subscribe": () => XiaoMiPushPlugin.subscribe(topic: "test", category: "test"),
-      "unsubscribe": () => XiaoMiPushPlugin.unsubscribe(topic: "test", category: "test"),
-      "getAllTopic": () async => controller.text = jsonEncode(await XiaoMiPushPlugin.getAllTopic()),
+      "init": () => XiaoMiPushPlugin.init(
+          appId: "2882303761518406102", appKey: "5981840633102"),
+      "setAlias": () =>
+          XiaoMiPushPlugin.setAlias(alias: "test", category: "test"),
+      "unsetAlias": () =>
+          XiaoMiPushPlugin.unsetAlias(alias: "test", category: "test"),
+      "getAllAlias": () async =>
+          controller.text = jsonEncode(await XiaoMiPushPlugin.getAllAlias()),
+      "setUserAccount": () => XiaoMiPushPlugin.setUserAccount(
+          userAccount: "test", category: "test"),
+      "unsetUserAccount": () => XiaoMiPushPlugin.unsetUserAccount(
+          userAccount: "test", category: "test"),
+      "getAllUserAccount": () async => controller.text =
+          jsonEncode(await XiaoMiPushPlugin.getAllUserAccount()),
+      "subscribe": () =>
+          XiaoMiPushPlugin.subscribe(topic: "test", category: "test"),
+      "unsubscribe": () =>
+          XiaoMiPushPlugin.unsubscribe(topic: "test", category: "test"),
+      "getAllTopic": () async =>
+          controller.text = jsonEncode(await XiaoMiPushPlugin.getAllTopic()),
     };
 
     XiaoMiPushPlugin.addListener(onXiaoMiPushListener);
@@ -44,10 +54,12 @@ class _MyAppState extends State<MyApp> {
 
   /// 小米推送监听器
   onXiaoMiPushListener(type, params) {
-    print("======================");
-    print(type);
-    print(params);
-    print("======================");
+    controller.text = ""
+        "======================\n"
+        "Listener ${type.toString().split(".")[1]}:\n"
+        "--------------------------------------------\n"
+        "${jsonEncode(params)}\n"
+        "======================";
   }
 
   @override

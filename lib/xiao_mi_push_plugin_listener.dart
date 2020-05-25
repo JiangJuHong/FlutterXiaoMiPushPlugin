@@ -1,6 +1,9 @@
 import 'dart:convert';
 
 import 'package:flutter/services.dart';
+import 'package:xiao_mi_push_plugin/entity/mi_push_message_entity.dart';
+
+import 'entity/mi_push_command_message_entity.dart';
 
 /// 监听器对象
 class XiaoMiPushPluginListener {
@@ -17,7 +20,9 @@ class XiaoMiPushPluginListener {
         case 'onListener':
           // 获得原始类型和参数
           String typeStr = arguments['type'].toString();
-          var params = arguments['params'] != null ? jsonDecode(arguments["params"]) : null;
+          var params = arguments['params'] != null
+              ? jsonDecode(arguments["params"])
+              : null;
 
           // 封装回调类型和参数
           XiaoMiPushListenerTypeEnum type;
@@ -37,6 +42,26 @@ class XiaoMiPushPluginListener {
           }
 
           // 回调触发
+          switch (type) {
+            case XiaoMiPushListenerTypeEnum.RequirePermissions:
+              break;
+            case XiaoMiPushListenerTypeEnum.NotificationMessageClicked:
+              params = MiPushMessageEntity.fromJson(params);
+              break;
+            case XiaoMiPushListenerTypeEnum.ReceivePassThroughMessage:
+              params = MiPushMessageEntity.fromJson(params);
+              break;
+            case XiaoMiPushListenerTypeEnum.CommandResult:
+              params = MiPushCommandMessageEntity.fromJson(params);
+              break;
+            case XiaoMiPushListenerTypeEnum.ReceiveRegisterResult:
+              params = MiPushCommandMessageEntity.fromJson(params);
+              break;
+            case XiaoMiPushListenerTypeEnum.NotificationMessageArrived:
+              params = MiPushMessageEntity.fromJson(params);
+              break;
+          }
+
           for (var item in listeners) {
             item(type, params);
           }
@@ -60,7 +85,8 @@ class XiaoMiPushPluginListener {
 }
 
 /// 监听器值模型
-typedef ListenerValue<P> = void Function(XiaoMiPushListenerTypeEnum type, P params);
+typedef ListenerValue<P> = void Function(
+    XiaoMiPushListenerTypeEnum type, P params);
 
 /// 监听器类型枚举
 enum XiaoMiPushListenerTypeEnum {

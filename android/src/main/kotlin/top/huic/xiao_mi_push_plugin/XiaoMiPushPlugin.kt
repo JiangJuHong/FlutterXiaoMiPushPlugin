@@ -5,11 +5,12 @@ import android.app.Activity
 import android.content.Context
 import android.content.pm.PackageManager
 import android.os.Build
-import android.telephony.TelephonyManager
-import android.util.Log
 import androidx.annotation.NonNull
 import androidx.core.app.ActivityCompat
+import com.alibaba.fastjson.JSON
 import com.xiaomi.mipush.sdk.MiPushClient
+import com.xiaomi.mipush.sdk.MiPushCommandMessage
+import com.xiaomi.mipush.sdk.MiPushMessage
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.embedding.engine.plugins.FlutterPlugin.FlutterPluginBinding
 import io.flutter.embedding.engine.plugins.activity.ActivityAware
@@ -18,9 +19,7 @@ import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import io.flutter.plugin.common.MethodChannel.Result
-import io.flutter.plugin.common.PluginRegistry.Registrar
 import top.huic.xiao_mi_push_plugin.util.CommonUtil
-import java.lang.Exception
 import java.lang.reflect.Method
 
 /** XiaoMiPushPlugin */

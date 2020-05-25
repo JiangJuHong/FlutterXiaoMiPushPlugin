@@ -5,7 +5,8 @@ import 'package:flutter/services.dart';
 import 'package:xiao_mi_push_plugin/xiao_mi_push_plugin_listener.dart';
 
 class XiaoMiPushPlugin {
-  static const MethodChannel _channel = const MethodChannel('xiao_mi_push_plugin');
+  static const MethodChannel _channel =
+      const MethodChannel('xiao_mi_push_plugin');
   static XiaoMiPushPluginListener listener;
 
   /// 初始化，如果没有appId或appKey，请登录小米开发者中心申请

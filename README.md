@@ -1,4 +1,6 @@
 # xiao_mi_push_plugin
+[![pub package](https://img.shields.io/pub/v/xiao_mi_push_plugin.svg)](https://pub.dartlang.org/packages/xiao_mi_push_plugin)
+
 小米推送SDK Flutter插件  
 小米Push版本: v3.7.6  
 测试时请使用真机测试，模拟器将会出现 `code = 10017, msg= 参数值非法` 异常
@@ -41,9 +43,9 @@ Flutter Version >= 1.12
 
 |  类型   | 说明  | 格式  | 
 |  ----  | ----  | ----  |
-| NotificationMessageClicked  | 接收服务器推送的通知消息，用户点击后触发 | 
-| RequirePermissions  | 当所需要的权限未获取到的时候会回调该接口 | 
-| ReceivePassThroughMessage  | 接收服务器推送的透传消息 | 
-| CommandResult  | 获取给服务器发送命令的结果 | 
-| ReceiveRegisterResult  | 获取给服务器发送注册命令的结果 | 
-| NotificationMessageArrived  | 接收服务器推送的通知消息，消息到达客户端时触发，还可以接受应用在前台时不弹出通知的通知消息(在MIUI上，只有应用处于启动状态，或者自启动白名单中，才可以通过此方法接受到该消息) | 
+| NotificationMessageClicked  | 接收服务器推送的通知消息，用户点击后触发 | MiPushMessageEntity
+| RequirePermissions  | 当所需要的权限未获取到的时候会回调该接口 | List<String>
+| ReceivePassThroughMessage  | 接收服务器推送的透传消息 | MiPushMessageEntity
+| CommandResult  | 获取给服务器发送命令的结果 | MiPushCommandMessageEntity
+| ReceiveRegisterResult  | 获取给服务器发送注册命令的结果 | MiPushCommandMessageEntity
+| NotificationMessageArrived  | 接收服务器推送的通知消息，消息到达客户端时触发，还可以接受应用在前台时不弹出通知的通知消息(在MIUI上，只有应用处于启动状态，或者自启动白名单中，才可以通过此方法接受到该消息) | MiPushMessageEntity

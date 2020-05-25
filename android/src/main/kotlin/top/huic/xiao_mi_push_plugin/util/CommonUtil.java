@@ -3,6 +3,9 @@ package top.huic.xiao_mi_push_plugin.util;
 import android.os.Handler;
 import android.os.Looper;
 
+import com.alibaba.fastjson.JSON;
+import com.xiaomi.mipush.sdk.MiPushMessage;
+
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 

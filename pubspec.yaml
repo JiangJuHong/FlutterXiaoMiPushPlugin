@@ -1,8 +1,8 @@
 name: xiao_mi_push_plugin
-description: 小米推送SDK Flutter插件
-version: 0.0.1
-author:
-homepage:
+description: This plug-in is packaged based on the xiaomi Push SDK, providing common methods and listeners
+version: 1.0.0
+author: 690717394@qq.com
+homepage: https://github.com/JiangJuHong/FlutterXiaoMiPushPlugin
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
@@ -11,6 +11,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+
+  json_serializable: 3.3.0
 
 dev_dependencies:
   flutter_test:
