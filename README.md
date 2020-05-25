@@ -49,3 +49,16 @@ Flutter Version >= 1.12
 | CommandResult  | 获取给服务器发送命令的结果 | MiPushCommandMessageEntity
 | ReceiveRegisterResult  | 获取给服务器发送注册命令的结果 | MiPushCommandMessageEntity
 | NotificationMessageArrived  | 接收服务器推送的通知消息，消息到达客户端时触发，还可以接受应用在前台时不弹出通知的通知消息(在MIUI上，只有应用处于启动状态，或者自启动白名单中，才可以通过此方法接受到该消息) | MiPushMessageEntity
+
+
+## 其它插件
+````
+我同时维护的还有如下插件，如果您感兴趣与我一起进行维护，请通过Github联系我，欢迎 issues 和 PR。
+````
+| 平台 | 插件  |  描述  |  版本  |
+| ---- | ----  | ---- |  ---- |
+| Flutter | [FlutterTencentImPlugin](https://github.com/JiangJuHong/FlutterTencentImPlugin)  | 腾讯云IM插件 | [![pub package](https://img.shields.io/pub/v/tencent_im_plugin.svg)](https://pub.dartlang.org/packages/tencent_im_plugin) |
+| Flutter | [FlutterTencentRtcPlugin](https://github.com/JiangJuHong/FlutterTencentRtcPlugin)  | 腾讯云Rtc插件 | [![pub package](https://img.shields.io/pub/v/tencent_rtc_plugin.svg)](https://pub.dartlang.org/packages/tencent_rtc_plugin) |
+| Flutter | [FlutterXiaoMiPushPlugin](https://github.com/JiangJuHong/FlutterXiaoMiPushPlugin)  | 小米推送SDK插件 | [![pub package](https://img.shields.io/pub/v/xiao_mi_push_plugin.svg)](https://pub.dartlang.org/packages/xiao_mi_push_plugin) |
+| Flutter | [FlutterTextSpanField](https://github.com/JiangJuHong/FlutterTextSpanField)  | 自定义文本样式输入框 | [![pub package](https://img.shields.io/pub/v/text_span_field.svg)](https://pub.dartlang.org/packages/text_span_field) |
+| Flutter | [FlutterQiniucloudLivePlugin](https://github.com/JiangJuHong/FlutterQiniucloudLivePlugin)  | Flutter 七牛云直播云插件 | 暂未发布，通过 git 集成 |
