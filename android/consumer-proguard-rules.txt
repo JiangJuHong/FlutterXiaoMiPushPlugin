@@ -1,0 +1,12 @@
+# FastJson
+-dontwarn com.alibaba.fastjson.**
+-keep class com.alibaba.fastjson.**{*;}
+
+# 泛型
+-keepattributes Signature
+
+# 不混淆Serializable接口的子类
+-keepclassmembers class * implements java.io.Serializable { *; }
+
+# 忽略当前项目
+-keep class top.huic.xiao_mi_push_plugin.** { *; }

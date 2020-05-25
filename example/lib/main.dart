@@ -1,7 +1,6 @@
-import 'package:flutter/material.dart';
-import 'dart:async';
+import 'dart:convert';
 
-import 'package:flutter/services.dart';
+import 'package:flutter/material.dart';
 import 'package:xiao_mi_push_plugin/xiao_mi_push_plugin.dart';
 
 void main() {
@@ -14,32 +13,41 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  String _platformVersion = 'Unknown';
+  TextEditingController controller = TextEditingController();
+
+  Map<String, Function> methods = {};
 
   @override
   void initState() {
     super.initState();
-    initPlatformState();
+    this.methods = {
+      "init": () => XiaoMiPushPlugin.init(appId: "2882303761518406102", appKey: "5981840633102"),
+      "setAlias": () => XiaoMiPushPlugin.setAlias(alias: "test", category: "test"),
+      "unsetAlias": () => XiaoMiPushPlugin.unsetAlias(alias: "test", category: "test"),
+      "getAllAlias": () async => controller.text = jsonEncode(await XiaoMiPushPlugin.getAllAlias()),
+      "setUserAccount": () => XiaoMiPushPlugin.setUserAccount(userAccount: "test", category: "test"),
+      "unsetUserAccount": () => XiaoMiPushPlugin.unsetUserAccount(userAccount: "test", category: "test"),
+      "getAllUserAccount": () async => controller.text = jsonEncode(await XiaoMiPushPlugin.getAllUserAccount()),
+      "subscribe": () => XiaoMiPushPlugin.subscribe(topic: "test", category: "test"),
+      "unsubscribe": () => XiaoMiPushPlugin.unsubscribe(topic: "test", category: "test"),
+      "getAllTopic": () async => controller.text = jsonEncode(await XiaoMiPushPlugin.getAllTopic()),
+    };
+
+    XiaoMiPushPlugin.addListener(onXiaoMiPushListener);
   }
 
-  // Platform messages are asynchronous, so we initialize in an async method.
-  Future<void> initPlatformState() async {
-    String platformVersion;
-    // Platform messages may fail, so we use a try/catch PlatformException.
-    try {
-      platformVersion = await XiaoMiPushPlugin.platformVersion;
-    } on PlatformException {
-      platformVersion = 'Failed to get platform version.';
-    }
+  @override
+  void dispose() {
+    super.dispose();
+    XiaoMiPushPlugin.removeListener(onXiaoMiPushListener);
+  }
 
-    // If the widget was removed from the tree while the asynchronous platform
-    // message was in flight, we want to discard the reply rather than calling
-    // setState to update our non-existent appearance.
-    if (!mounted) return;
-
-    setState(() {
-      _platformVersion = platformVersion;
-    });
+  /// 小米推送监听器
+  onXiaoMiPushListener(type, params) {
+    print("======================");
+    print(type);
+    print(params);
+    print("======================");
   }
 
   @override
@@ -50,7 +58,28 @@ class _MyAppState extends State<MyApp> {
           title: const Text('Plugin example app'),
         ),
         body: Center(
-          child: Text('Running on: $_platformVersion\n'),
+          child: Column(
+            children: <Widget>[
+              TextField(
+                controller: controller,
+                maxLines: 10,
+              ),
+              Expanded(
+                child: Wrap(
+                  runSpacing: 10,
+                  spacing: 10,
+                  children: methods.keys
+                      .map(
+                        (key) => RaisedButton(
+                          onPressed: methods[key],
+                          child: Text(key),
+                        ),
+                      )
+                      .toList(),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
