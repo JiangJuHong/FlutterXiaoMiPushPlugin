@@ -5,6 +5,12 @@
 小米Push版本: v3.7.6  
 测试时请使用真机测试，模拟器将会出现 `code = 10017, msg= 参数值非法` 异常
 
+## 讨论群
+<img
+src="https://raw.githubusercontent.com/JiangJuHong/access-images/master/other/qq-group.jpg"
+height="300em" style="max-width:100%;display: inline-block;"/>  
+[点击加入群聊](https://jq.qq.com/?_wv=1027&k=QxCWMlUf)  
+
 ## 使用要求
 Flutter Version >= 1.12  
 
