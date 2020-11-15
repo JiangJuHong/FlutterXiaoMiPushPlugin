@@ -41,6 +41,8 @@ class _MyAppState extends State<MyApp> {
           XiaoMiPushPlugin.unsubscribe(topic: "test", category: "test"),
       "getAllTopic": () async =>
           controller.text = jsonEncode(await XiaoMiPushPlugin.getAllTopic()),
+      "getRegId": () async =>
+          controller.text = await XiaoMiPushPlugin.getRegId(),
     };
 
     XiaoMiPushPlugin.addListener(onXiaoMiPushListener);
