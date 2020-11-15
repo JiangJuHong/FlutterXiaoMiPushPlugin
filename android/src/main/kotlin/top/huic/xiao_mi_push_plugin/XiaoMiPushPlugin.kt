@@ -182,4 +182,11 @@ public class XiaoMiPushPlugin : FlutterPlugin, MethodCallHandler, ActivityAware 
     private fun getAllTopic(@NonNull call: MethodCall, @NonNull result: Result) {
         result.success(MiPushClient.getAllTopic(context))
     }
+
+    /**
+     * 获取客户端的 RegId
+     */
+    private fun getRegId(@NonNull call: MethodCall, @NonNull result: Result) {
+        result.success(MiPushClient.getRegId(context))
+    }
 }

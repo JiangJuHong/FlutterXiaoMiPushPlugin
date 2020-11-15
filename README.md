@@ -42,6 +42,7 @@ Flutter Version >= 1.12
 | subscribe  | 设置标签 | { topic: 标签, category: 分类 }
 | unsubscribe  | 撤销设置标签 | { topic: 标签, category: 分类 }
 | getAllTopic  | 获得所有标签 | -
+| getRegId  | 获取客户端的 RegId | -
 
 ### 监听器
 添加监听器:`XiaoMiPushPlugin.addListener`，移除监听器:`XiaoMiPushPlugin.removeListener`  
