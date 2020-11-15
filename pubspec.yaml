@@ -1,6 +1,6 @@
 name: xiao_mi_push_plugin
 description: This plug-in is packaged based on the xiaomi Push SDK, providing common methods and listeners
-version: 1.0.0
+version: 1.0.1
 author: 690717394@qq.com
 homepage: https://github.com/JiangJuHong/FlutterXiaoMiPushPlugin
 
