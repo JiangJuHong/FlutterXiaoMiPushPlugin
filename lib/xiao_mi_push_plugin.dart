@@ -1,20 +1,19 @@
 import 'dart:async';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:xiao_mi_push_plugin/xiao_mi_push_plugin_listener.dart';
 
 class XiaoMiPushPlugin {
   static const MethodChannel _channel =
       const MethodChannel('xiao_mi_push_plugin');
-  static XiaoMiPushPluginListener listener;
+  static XiaoMiPushPluginListener? listener;
 
   /// 初始化，如果没有appId或appKey，请登录小米开发者中心申请
   /// [appId] 应用appId
   /// [appKey] 应用appKey
   static Future<void> init({
-    @required String appId,
-    @required String appKey,
+    required String appId,
+    required String appKey,
   }) async {
     return await _channel.invokeMethod('init', {
       "appId": appId,
@@ -26,8 +25,8 @@ class XiaoMiPushPlugin {
   /// [alias] 别名
   /// [category] 分类
   static Future<void> setAlias({
-    @required String alias,
-    @required String category,
+    required String alias,
+    required String category,
   }) async {
     return await _channel.invokeMethod('setAlias', {
       "alias": alias,
@@ -39,8 +38,8 @@ class XiaoMiPushPlugin {
   /// [alias] 别名
   /// [category] 分类
   static Future<void> unsetAlias({
-    @required String alias,
-    @required String category,
+    required String alias,
+    required String category,
   }) async {
     return await _channel.invokeMethod('unsetAlias', {
       "alias": alias,
@@ -57,8 +56,8 @@ class XiaoMiPushPlugin {
   /// [userAccount] 用户账户
   /// [category] 分类
   static Future<void> setUserAccount({
-    @required String userAccount,
-    @required String category,
+    required String userAccount,
+    required String category,
   }) async {
     return await _channel.invokeMethod('setUserAccount', {
       "userAccount": userAccount,
@@ -70,8 +69,8 @@ class XiaoMiPushPlugin {
   /// [userAccount] 用户账户
   /// [category] 分类
   static Future<void> unsetUserAccount({
-    @required String userAccount,
-    @required String category,
+    required String userAccount,
+    required String category,
   }) async {
     return await _channel.invokeMethod('unsetUserAccount', {
       "userAccount": userAccount,
@@ -88,8 +87,8 @@ class XiaoMiPushPlugin {
   /// [topic] 标签
   /// [category] 分类
   static Future<void> subscribe({
-    @required String topic,
-    @required String category,
+    required String topic,
+    required String category,
   }) async {
     return await _channel.invokeMethod('subscribe', {
       "topic": topic,
@@ -101,8 +100,8 @@ class XiaoMiPushPlugin {
   /// [topic] 标签
   /// [category] 分类
   static Future<void> unsubscribe({
-    @required String topic,
-    @required String category,
+    required String topic,
+    required String category,
   }) async {
     return await _channel.invokeMethod('unsubscribe', {
       "topic": topic,
@@ -120,7 +119,7 @@ class XiaoMiPushPlugin {
     if (listener == null) {
       listener = XiaoMiPushPluginListener(_channel);
     }
-    listener.addListener(func);
+    listener!.addListener(func);
   }
 
   /// 移除消息监听
@@ -128,7 +127,7 @@ class XiaoMiPushPlugin {
     if (listener == null) {
       listener = XiaoMiPushPluginListener(_channel);
     }
-    listener.removeListener(func);
+    listener!.removeListener(func);
   }
 
   /// 获取客户端的 RegId

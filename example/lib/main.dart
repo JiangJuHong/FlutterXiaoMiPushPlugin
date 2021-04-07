@@ -42,7 +42,7 @@ class _MyAppState extends State<MyApp> {
       "getAllTopic": () async =>
           controller.text = jsonEncode(await XiaoMiPushPlugin.getAllTopic()),
       "getRegId": () async =>
-          controller.text = await XiaoMiPushPlugin.getRegId(),
+          controller.text = await (XiaoMiPushPlugin.getRegId()),
     };
 
     XiaoMiPushPlugin.addListener(onXiaoMiPushListener);
@@ -84,8 +84,8 @@ class _MyAppState extends State<MyApp> {
                   spacing: 10,
                   children: methods.keys
                       .map(
-                        (key) => RaisedButton(
-                          onPressed: methods[key],
+                        (key) => OutlinedButton(
+                          onPressed: methods[key] as void Function()?,
                           child: Text(key),
                         ),
                       )

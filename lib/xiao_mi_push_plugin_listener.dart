@@ -14,18 +14,18 @@ class XiaoMiPushPluginListener {
     // 绑定监听器
     channel.setMethodCallHandler((methodCall) async {
       // 解析参数
-      Map<dynamic, dynamic> arguments = methodCall.arguments;
+      Map<dynamic, dynamic>? arguments = methodCall.arguments;
 
       switch (methodCall.method) {
         case 'onListener':
           // 获得原始类型和参数
-          String typeStr = arguments['type'].toString();
+          String typeStr = arguments!['type'].toString();
           var params = arguments['params'] != null
               ? jsonDecode(arguments["params"])
               : null;
 
           // 封装回调类型和参数
-          XiaoMiPushListenerTypeEnum type;
+          XiaoMiPushListenerTypeEnum? type;
 
           // 初始化类型
           for (var item in XiaoMiPushListenerTypeEnum.values) {
@@ -86,7 +86,7 @@ class XiaoMiPushPluginListener {
 
 /// 监听器值模型
 typedef ListenerValue<P> = void Function(
-    XiaoMiPushListenerTypeEnum type, P params);
+    XiaoMiPushListenerTypeEnum type, P? params);
 
 /// 监听器类型枚举
 enum XiaoMiPushListenerTypeEnum {

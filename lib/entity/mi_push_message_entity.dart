@@ -1,15 +1,15 @@
 class MiPushMessageEntity {
-  final bool arrivedMessage;
-  final String content;
-  final String description;
-  final MiPushMessageExtra extra;
-  final String messageId;
-  final int messageType;
-  final bool notified;
-  final int notifyId;
-  final int notifyType;
-  final int passThrough;
-  final String title;
+  final bool? arrivedMessage;
+  final String? content;
+  final String? description;
+  final MiPushMessageExtra? extra;
+  final String? messageId;
+  final int? messageType;
+  final bool? notified;
+  final int? notifyId;
+  final int? notifyType;
+  final int? passThrough;
+  final String? title;
 
   MiPushMessageEntity({
     this.arrivedMessage,
@@ -47,7 +47,7 @@ class MiPushMessageEntity {
         'arrivedMessage': arrivedMessage,
         'content': content,
         'description': description,
-        'extra': extra == null ? null : extra.toJson(),
+        'extra': extra == null ? null : extra!.toJson(),
         'messageId': messageId,
         'messageType': messageType,
         'notified': notified,
@@ -59,12 +59,12 @@ class MiPushMessageEntity {
 }
 
 class MiPushMessageExtra {
-  final String highPriorityEvent;
-  final String feTs;
-  final String planId;
-  final String source;
-  final String notifyForeground;
-  final String mTs;
+  final String? highPriorityEvent;
+  final String? feTs;
+  final String? planId;
+  final String? source;
+  final String? notifyForeground;
+  final String? mTs;
 
   MiPushMessageExtra({
     this.highPriorityEvent,

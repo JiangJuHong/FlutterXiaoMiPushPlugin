@@ -1,9 +1,9 @@
 import 'dart:convert';
 
 class MiPushCommandMessageEntity {
-  final String command;
-  final List<String> commandArguments;
-  final int resultCode;
+  final String? command;
+  final List<String>? commandArguments;
+  final int? resultCode;
 
   MiPushCommandMessageEntity({
     this.command,

@@ -1,2 +1,5 @@
+## 2.0.0
+* null safety
+
 ## 1.0.0
-完成基本接口以及监听器配置
+* First submission
