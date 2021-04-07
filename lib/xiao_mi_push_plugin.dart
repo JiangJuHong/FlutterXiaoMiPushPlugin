@@ -131,7 +131,7 @@ class XiaoMiPushPlugin {
   }
 
   /// 获取客户端的 RegId
-  static Future<String> getRegId() async {
+  static Future<String?> getRegId() async {
     return await _channel.invokeMethod('getRegId');
   }
 }

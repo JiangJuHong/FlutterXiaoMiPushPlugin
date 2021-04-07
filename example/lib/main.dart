@@ -42,7 +42,7 @@ class _MyAppState extends State<MyApp> {
       "getAllTopic": () async =>
           controller.text = jsonEncode(await XiaoMiPushPlugin.getAllTopic()),
       "getRegId": () async =>
-          controller.text = await (XiaoMiPushPlugin.getRegId()),
+          controller.text = "${(await (XiaoMiPushPlugin.getRegId())) ?? "失败"}",
     };
 
     XiaoMiPushPlugin.addListener(onXiaoMiPushListener);
