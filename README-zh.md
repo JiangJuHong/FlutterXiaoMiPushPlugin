@@ -1,3 +1,6 @@
+[\[中文文档\]](https://github.com/JiangJuHong/FlutterXiaoMiPushPlugin/blob/master/README-zh.md)
+[\[English Docs\]](https://github.com/JiangJuHong/FlutterXiaoMiPushPlugin/blob/master/README.md)
+
 # xiao_mi_push_plugin
 [![pub package](https://img.shields.io/pub/v/xiao_mi_push_plugin.svg)](https://pub.dartlang.org/packages/xiao_mi_push_plugin)
 
